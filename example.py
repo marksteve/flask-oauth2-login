@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, jsonify
-from flask_oauth2_login.google import GoogleLogin
+from flask_oauth2_login import GoogleLogin
 
 app = Flask(__name__)
 app.config.update(
