@@ -55,10 +55,12 @@ class OAuth2Login(object):
       )
       profile = self.get_profile(sess)
       # TODO: Check state
+    except Warning:
+      # Ignore warnings
+      pass
     except Exception as e:
       return self.login_failure_func(e)
-    else:
-      return self.login_success_func(sess.token, profile)
+    return self.login_success_func(sess.token, profile)
 
   def login_success(self, f):
     self.login_success_func = f
