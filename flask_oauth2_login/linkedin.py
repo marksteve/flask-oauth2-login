@@ -3,7 +3,7 @@ from .base import OAuth2Login
 
 class LinkedInLogin(OAuth2Login):
 
-  config_prefix = "LINKEDIN_LOGIN"
+  config_prefix = "LINKEDIN_LOGIN_"
   redirect_endpoint = "_linkedin_login"
   state_session_key = "_linkedin_login_state"
 
