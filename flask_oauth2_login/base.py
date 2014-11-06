@@ -47,19 +47,27 @@ class OAuth2Login(object):
 
   def login(self):
     sess = self.session()
+
+    # Get token
     try:
       sess.fetch_token(
         self.token_url,
         code=request.args["code"],
         client_secret=self.client_secret,
       )
-      profile = self.get_profile(sess)
       # TODO: Check state
     except Warning:
       # Ignore warnings
       pass
     except Exception as e:
       return self.login_failure_func(e)
+
+    # Get profile
+    try:
+      profile = self.get_profile(sess)
+    except Exception as e:
+      return self.login_failure_func(e)
+
     return self.login_success_func(sess.token, profile)
 
   def login_success(self, f):
