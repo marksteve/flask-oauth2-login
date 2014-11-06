@@ -8,8 +8,8 @@ class LinkedInLogin(OAuth2Login):
   state_session_key = "_linkedin_login_state"
 
   default_scope = (
-    "r_basicprofile",
-    "r_emailaddress",
+    "r_basicprofile,"
+    "r_emailaddress"
   )
   default_redirect_path = "/login/linkedin"
 
