@@ -1,7 +1,7 @@
 from .base import OAuth2Login
 
 
-class LinkedIn(OAuth2Login):
+class LinkedInLogin(OAuth2Login):
 
   config_prefix = "LINKEDIN_LOGIN"
   redirect_endpoint = "_linkedin_login"
